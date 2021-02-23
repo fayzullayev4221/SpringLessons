@@ -16,5 +16,16 @@ public class TestSpring {
         musicPlayer.playMusic();
 
 
+//        Dependency Injection (DI)  -- with Constructor --
+        MusicPlayer musicPlayer2 = context.getBean("musicPlayerConst",MusicPlayer.class);
+        musicPlayer2.playMusic();
+
+//        Dependency Injection (DI)  -- with Setter --
+        MusicPlayer musicPlayer3 = context.getBean("musicPlayerSetter",MusicPlayer.class );
+        musicPlayer3.playMusic();
+
+
+
+
     }
 }

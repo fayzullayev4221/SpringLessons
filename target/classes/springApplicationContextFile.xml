@@ -8,19 +8,29 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
         <bean id="classicalMusic"
-              class="Lesson4.ClassicalMusic">
+              class="src.ClassicalMusic">
         </bean>
 
         <bean id="rapMusic"
-              class="Lesson4.RapMusic">
+              class="src.RapMusic">
         </bean>
 
         <bean id="popMusic"
-              class="Lesson4.PopMusic">
+              class="src.PopMusic">
         </bean>
 
         <bean id="retroMusic"
-              class="Lesson4.RetroMusic">
+              class="src.RetroMusic">
+        </bean>
+
+        <bean id="musicPlayerConst"
+              class="src.MusicPlayer">
+              <constructor-arg ref="rapMusic"/>
+        </bean>
+
+        <bean id="musicPlayerSetter"
+              class="src.MusicPlayer">
+        <property name="music" ref="retroMusic"/>
         </bean>
 
 </beans>
