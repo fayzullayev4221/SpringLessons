@@ -7,6 +7,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+        <context:property-placeholder   location="classBeanVariablesExternalFile.properties"/>
+
+
         <bean id="classicalMusic"
               class="src.ClassicalMusic">
         </bean>
@@ -31,6 +34,28 @@
         <bean id="musicPlayerSetter"
               class="src.MusicPlayer">
         <property name="music" ref="retroMusic"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+        </bean>
+
+        <bean id="init-destroy-singleton"
+              class="src.ClassicalMusic"
+              init-method="doMyInit"
+              destroy-method="doMyDestroy">
+        </bean>
+
+        <bean id="init-destroy-prototype"
+              class="src.RapMusic"
+              init-method="doMyInit"
+              destroy-method="doMyDestroy"
+              scope="prototype">
+        </bean>
+
+        <bean id="factory-method"
+              class="src.PopMusic"
+              scope="prototype"
+              factory-method="getInstance"
+              init-method="doMyInit"
+              destroy-method="doMyDestroy">
         </bean>
 
 </beans>

@@ -19,8 +19,6 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-
-
     public void playMusic(){
         System.out.println("Playing : "+music.getSong());
     }
