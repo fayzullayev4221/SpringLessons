@@ -2,7 +2,7 @@ package src;
 
 import org.springframework.stereotype.Component;
 
-@Component("popMusic")
+
 public class PopMusic implements Music{
 
     private PopMusic(){}

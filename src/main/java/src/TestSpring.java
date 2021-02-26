@@ -10,16 +10,17 @@ public class TestSpring {
         ClassPathXmlApplicationContext context  = new ClassPathXmlApplicationContext("springApplicationContextFile.xml");
 
 //        ==================================       Annotations        =========================================
-       String beanId;
-
-        for (int i = 0; i <4 ; i++) {
-            System.out.print("Enter beanId you want...");
-            beanId=scanner.nextLine();
-            Music music = context.getBean(beanId,Music.class);
-            MusicPlayer musicPlayer = new MusicPlayer (music);
-            musicPlayer.playMusic();
-        }
-
+//       String beanId;
+//
+//        for (int i = 0; i <4 ; i++) {
+//            System.out.print("Enter beanId you want...");
+//            beanId=scanner.nextLine();
+//            Music music = context.getBean(beanId,Music.class);
+//            MusicPlayer musicPlayer = new MusicPlayer (music);
+//            musicPlayer.playMusic();
+//        }
+       Computer computer = context.getBean("computer",Computer.class);
+        System.out.println(computer);
 
         context.close();
 

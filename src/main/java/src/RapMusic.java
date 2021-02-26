@@ -2,7 +2,7 @@ package src;
 
 import org.springframework.stereotype.Component;
 
-@Component("rapMusic")
+
 public class RapMusic implements Music{
 
     public void doMyInit(){
