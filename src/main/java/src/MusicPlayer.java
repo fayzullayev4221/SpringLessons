@@ -3,42 +3,35 @@ package src;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+import java.util.List;
+
+@Component("playAllMusicCompositions")
 public class MusicPlayer {
-    private Music music;
-    private RetroMusic retroMusic;
     private ClassicalMusic classicalMusic;
-    private int volume;
+    private RetroMusic retroMusic;
+    private RapMusic rapMusic;
+    private Music music ;
 
 
-//    @Autowired
-//    public MusicPlayer (RetroMusic retroMusic){
-//        this.retroMusic  = retroMusic;
-//    }
 //    @Autowired
 //    public MusicPlayer (Music music){
 //        this.music = music;
 //    }
     @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic , RetroMusic retroMusic ){
+    public MusicPlayer (ClassicalMusic classicalMusic, RetroMusic retroMusic, RapMusic rapMusic){
         this.classicalMusic = classicalMusic;
         this.retroMusic = retroMusic;
+        this.rapMusic = rapMusic;
     }
-    public MusicPlayer (){}
 
 
-//
-//    @Autowired
-//    public void setMusic(Music music){
-//        this.music = music;
+//    public void setVolume(int volume){
+//        this.volume = volume;
 //    }
 
-    public void setVolume(int volume){
-        this.volume = volume;
-    }
-
-    public String playMusic(){
-        return "Playing : "+classicalMusic.getSong()+"\n"+
-        "Playing : "+retroMusic.getSong();
+    public void playMusic(){
+        System.out.println("Playing : " + classicalMusic.getSong());
+        System.out.println("Playing : " + retroMusic.getSong());
+        System.out.println("Playing : " + rapMusic.getSong());
     }
 }

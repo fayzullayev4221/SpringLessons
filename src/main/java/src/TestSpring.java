@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class TestSpring {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ClassPathXmlApplicationContext context  = new ClassPathXmlApplicationContext("springApplicationContextFile.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("springApplicationContextFile.xml");
 
 //        ==================================       Annotations        =========================================
 //       String beanId;
@@ -19,12 +19,29 @@ public class TestSpring {
 //            MusicPlayer musicPlayer = new MusicPlayer (music);
 //            musicPlayer.playMusic();
 //        }
-       Computer computer = context.getBean("computer",Computer.class);
-        System.out.println(computer);
+
+
+//        ==================================     Inversion of Control with Annotations      ===================
+//
+//        Music music1 = context.getBean("retroMusic",Music.class);
+//        MusicPlayer classicalMusic = new MusicPlayer(music1);
+//        classicalMusic.playMusic();
+//
+//        Music music2  = context.getBean("classicalMusic",Music.class);
+//        MusicPlayer classicalMusicPlayer = new MusicPlayer(music2);
+//        classicalMusicPlayer.playMusic();
+//
+//        Music music3 = context.getBean("rapMusic",Music.class);
+//        MusicPlayer rockMusicPlayer = new MusicPlayer(music3);
+//        rockMusicPlayer.playMusic();
+
+//        ============================      Dependency Injection with Annotations          ====================
+
+        MusicPlayer onMusicPlayer = context.getBean("playAllMusicCompositions", MusicPlayer.class);
+        onMusicPlayer.playMusic();
+
 
         context.close();
-
-
 
 
     }
