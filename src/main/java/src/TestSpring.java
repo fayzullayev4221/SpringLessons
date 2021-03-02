@@ -9,45 +9,25 @@ public class TestSpring {
         Scanner scanner = new Scanner(System.in);
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("springApplicationContextFile.xml");
 
-//        ==================================       Annotations        =========================================
-//       String beanId;
-//
-//        for (int i = 0; i <4 ; i++) {
-//            System.out.print("Enter beanId you want...");
-//            beanId=scanner.nextLine();
-//            Music music = context.getBean(beanId,Music.class);
-//            MusicPlayer musicPlayer = new MusicPlayer (music);
-//            musicPlayer.playMusic();
-//        }
+//        ==========================    @Scope    @Valid   @PreDestroy   @PostConstruct        =========================
 
+        /*MusicPlayer classicalMusicPlayer1 = context.getBean("musicPlayer",MusicPlayer.class);
+        MusicPlayer classicalMusicPlayer2 = context.getBean("musicPlayer",MusicPlayer.class);
+        System.out.println(classicalMusicPlayer1.getName());
+        System.out.println(classicalMusicPlayer1.getVolume());
 
-//        ==================================     Inversion of Control with Annotations      ===================
-//
-//        Music music1 = context.getBean("retroMusic",Music.class);
-//        MusicPlayer classicalMusic = new MusicPlayer(music1);
-//        classicalMusic.playMusic();
-//
-//        Music music2  = context.getBean("classicalMusic",Music.class);
-//        MusicPlayer classicalMusicPlayer = new MusicPlayer(music2);
-//        classicalMusicPlayer.playMusic();
-//
-//        Music music3 = context.getBean("rapMusic",Music.class);
-//        MusicPlayer rockMusicPlayer = new MusicPlayer(music3);
-//        rockMusicPlayer.playMusic();
+        System.out.println(classicalMusicPlayer1);
+        System.out.println(classicalMusicPlayer2);*/
 
-//        ============================      Dependency Injection with Annotations          ====================
+        MusicPlayer musicPlayer = context.getBean("musicPlayer",MusicPlayer.class);
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
 
-//        MusicPlayer onMusicPlayer = context.getBean("playMusicCompositions", MusicPlayer.class);
-//        onMusicPlayer.playMusic();
+        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic",ClassicalMusic.class);
+        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic",ClassicalMusic.class);
 
-
-//        ============================              @Qialifier          ========================================
-
-
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusic(MusicType.CLASSICAL);
-        musicPlayer.playMusic(MusicType.RETROMUSIC);
-        musicPlayer.playMusic(MusicType.RAPMUSIC);
+        System.out.println(classicalMusic1);
+        System.out.println(classicalMusic2);
 
         context.close();
 

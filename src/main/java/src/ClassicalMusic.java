@@ -1,13 +1,18 @@
 package src;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Scope("prototype")
 public class ClassicalMusic implements Music {
     private List<String> musicList = new ArrayList<>();
+
 
     {
         musicList.add("Vivaldi - Seasons of Year (Spring)");
@@ -15,12 +20,15 @@ public class ClassicalMusic implements Music {
         musicList.add("Shopen - Harmony");
     }
 
-    public void doMyInit() {
-        System.out.println("Init Singleton");
+
+    @PostConstruct
+    public void doMyInit(){
+        System.out.println("Initialization of Spring");
     }
 
-    public void doMyDestroy() {
-        System.out.println("Destroy Singleton");
+    @PreDestroy
+    public void doMyDestroy(){
+        System.out.println("Destruction of Spring");
     }
 
     @Override

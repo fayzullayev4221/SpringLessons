@@ -11,5 +11,6 @@
 <!--        =======================     Annotations         =========================-->
 
     <context:component-scan base-package="src"/>
+    <context:property-placeholder  location = "classBeanVariablesExternalFile.properties"/>
 
 </beans>
