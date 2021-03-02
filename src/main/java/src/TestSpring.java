@@ -37,9 +37,17 @@ public class TestSpring {
 
 //        ============================      Dependency Injection with Annotations          ====================
 
-        MusicPlayer onMusicPlayer = context.getBean("playAllMusicCompositions", MusicPlayer.class);
-        onMusicPlayer.playMusic();
+//        MusicPlayer onMusicPlayer = context.getBean("playMusicCompositions", MusicPlayer.class);
+//        onMusicPlayer.playMusic();
 
+
+//        ============================              @Qialifier          ========================================
+
+
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        musicPlayer.playMusic(MusicType.CLASSICAL);
+        musicPlayer.playMusic(MusicType.RETROMUSIC);
+        musicPlayer.playMusic(MusicType.RAPMUSIC);
 
         context.close();
 
