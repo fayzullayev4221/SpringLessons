@@ -1,43 +1,23 @@
 package src;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
+import java.util.ArrayList;
 import java.util.List;
 
-@Component
+
 public class MusicPlayer {
+    private List<Music> musicList = new ArrayList<>();
 
-    private Music music1;
-    private Music music2;
-    private ClassicalMusic classicalMusic;
-
-    @Value("${musicPlayer.name}")
-    private String name;
-
-    @Value("${musicPlayer.volume}")
-    private int volume;
-
-
-    public String getName() {
-        return name;
+    public MusicPlayer(List<Music> musicList){
+        this.musicList  = musicList ;
     }
 
-    public int getVolume() {
-        return volume;
-    }
-    @Autowired
-    public MusicPlayer(@Qualifier("classicalMusic") Music music1 ,
-                       @Qualifier("retroMusic") Music music2){
-        this.music1 = music1;
-        this.music2 = music2;
+    /**
+     * @deprecated  dont use this method, use method MusicPlayer instead
+     */
+    public void playMusic(){
+        int randomNumber = (int) (Math.random()*musicList.size());
+        System.out.println("Playing : "+musicList.get(randomNumber).getSong());
     }
 
-    public String playMusic() {
-        return  "Playing : " + music1.getSong()+" \n"+music2.getSong();
-    }
 }
 
 
